@@ -8,6 +8,6 @@ const databaseConfig = {
   connectionString: process.env.DATABASE_URL
 };
 
-const connection = new Pool(databaseConfig);
+const db = new Pool(databaseConfig);
 
-export default connection;
+export default db;
