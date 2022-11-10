@@ -124,41 +124,55 @@ export function insertGame(req, res) {
 }
 export function updateGame(req, res) {
     return __awaiter(this, void 0, void 0, function () {
+        var gameInfo, id, updatedGame, error_5;
         return __generator(this, function (_a) {
-            try {
-                res.send("OK");
-                return [2 /*return*/];
+            switch (_a.label) {
+                case 0:
+                    gameInfo = req.body;
+                    id = req.params.id;
+                    _a.label = 1;
+                case 1:
+                    _a.trys.push([1, 3, , 4]);
+                    return [4 /*yield*/, gamesRepositories.updateGame(gameInfo, id)];
+                case 2:
+                    updatedGame = _a.sent();
+                    if (updatedGame.rowCount === 0) {
+                        res.status(404).send({ error: "Game not found!" });
+                        return [2 /*return*/];
+                    }
+                    res.status(200).send({ message: "Game updated." });
+                    return [2 /*return*/];
+                case 3:
+                    error_5 = _a.sent();
+                    res.status(500).send({ error: error_5.message });
+                    return [2 /*return*/];
+                case 4: return [2 /*return*/];
             }
-            catch (error) {
-                res.status(500).send({ error: error.message });
-                return [2 /*return*/];
-            }
-            return [2 /*return*/];
         });
     });
 }
 export function deleteGame(req, res) {
     return __awaiter(this, void 0, void 0, function () {
-        var id, deletedGames, error_5;
+        var id, deletedGame, error_6;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
-                    id = req.params;
+                    id = req.params.id;
                     _a.label = 1;
                 case 1:
                     _a.trys.push([1, 3, , 4]);
-                    return [4 /*yield*/, gamesRepositories.deleteGame(id.id)];
+                    return [4 /*yield*/, gamesRepositories.deleteGame(id)];
                 case 2:
-                    deletedGames = _a.sent();
-                    if (deletedGames.rowCount === 0) {
+                    deletedGame = _a.sent();
+                    if (deletedGame.rowCount === 0) {
                         res.status(404).send({ error: "Game not found!" });
                         return [2 /*return*/];
                     }
                     res.status(200).send({ message: "Game deleted." });
                     return [2 /*return*/];
                 case 3:
-                    error_5 = _a.sent();
-                    res.status(500).send({ error: error_5.message });
+                    error_6 = _a.sent();
+                    res.status(500).send({ error: error_6.message });
                     return [2 /*return*/];
                 case 4: return [2 /*return*/];
             }

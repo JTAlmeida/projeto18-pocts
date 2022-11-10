@@ -7,6 +7,4 @@ export type GameEntity = {
     saleUntil: Date
 };
 
-export type Game = Omit<GameEntity, "id">;
-
-export type NewGame = Partial<GameEntity>;
+export type Game = Partial<GameEntity>;

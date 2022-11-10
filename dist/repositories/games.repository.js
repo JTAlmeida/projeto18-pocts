@@ -59,14 +59,14 @@ export function getSaleTotalValue() {
 export function insertGame(game) {
     return __awaiter(this, void 0, void 0, function () {
         return __generator(this, function (_a) {
-            return [2 /*return*/, db.query("INSERT INTO games (title, price, \"isOnSale\", \"salePrice\", \"saleUntil\") VALUES ($1, $2, $3, $4, $5);", [game.title, game.price, game.isOnSale, game.salePrice, game.saleUntil])];
+            return [2 /*return*/, db.query("INSERT INTO games (title, price, \"isOnSale\", \"salePrice\", \"saleUntil\") \n    VALUES ($1, $2, $3, $4, $5);", [game.title, game.price, game.isOnSale, game.salePrice, game.saleUntil])];
         });
     });
 }
-export function updateGame() {
+export function updateGame(game, id) {
     return __awaiter(this, void 0, void 0, function () {
         return __generator(this, function (_a) {
-            return [2 /*return*/, db.query("SELECT SUM(\"salePrice\")::int as total FROM games WHERE \"isOnSale\" = TRUE;")];
+            return [2 /*return*/, db.query("UPDATE games SET title = $1, price = $2, \"isOnSale\" = $3, \"salePrice\" = $4,\n    \"saleUntil\" = $5 WHERE id = $6;", [game.title, game.price, game.isOnSale, game.salePrice, game.saleUntil, id])];
         });
     });
 }

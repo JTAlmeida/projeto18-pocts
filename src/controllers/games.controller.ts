@@ -1,6 +1,6 @@
 import * as gamesRepositories from "../repositories/games.repository.js";
 import { Request, Response } from "express";
-import { Game, GameEntity, NewGame } from "../protocols/game.js";
+import { Game, GameEntity } from "../protocols/game.js";
 
 export async function getGames(req: Request, res: Response) {
   try {
@@ -39,7 +39,7 @@ export async function getSaleTotalValue(req: Request, res: Response) {
 }
 
 export async function insertGame(req: Request, res: Response) {
-  const newGame = req.body as NewGame;
+  const newGame = req.body as Game;
 
   try {
     await gamesRepositories.insertGame(newGame);
@@ -53,8 +53,18 @@ export async function insertGame(req: Request, res: Response) {
 }
 
 export async function updateGame(req: Request, res: Response) {
+    const gameInfo = req.body as Game;
+    const id = req.params.id;
+
   try {
-    res.send("OK");
+    const updatedGame = await gamesRepositories.updateGame(gameInfo, id);
+
+    if (updatedGame.rowCount === 0){
+        res.status(404).send({error: "Game not found!"});
+        return;
+    }
+
+    res.status(200).send({ message: "Game updated." });
     return;
   } catch (error) {
     res.status(500).send({ error: error.message });
@@ -63,12 +73,12 @@ export async function updateGame(req: Request, res: Response) {
 }
 
 export async function deleteGame(req: Request, res: Response) {
-  const id = req.params;
+  const id = req.params.id;
 
   try {
-    const deletedGames = await gamesRepositories.deleteGame(id.id);
+    const deletedGame = await gamesRepositories.deleteGame(id);
 
-    if (deletedGames.rowCount === 0){
+    if (deletedGame.rowCount === 0){
         res.status(404).send({error: "Game not found!"});
         return;
     }
