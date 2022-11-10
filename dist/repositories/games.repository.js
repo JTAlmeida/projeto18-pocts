@@ -45,7 +45,7 @@ export function getAllGames() {
 export function getGamesOnSale() {
     return __awaiter(this, void 0, void 0, function () {
         return __generator(this, function (_a) {
-            return [2 /*return*/, db.query("SELECT * FROM games WHERE \"isOnSale\" = true;")];
+            return [2 /*return*/, db.query("SELECT * FROM games WHERE \"isOnSale\" = TRUE;")];
         });
     });
 }

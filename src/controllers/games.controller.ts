@@ -16,7 +16,7 @@ export async function getGames(req: Request, res: Response) {
 
 export async function getGamesOnSale(req: Request, res: Response) {
   try {
-    const games = await gamesRepositories.getAllGames();
+    const games = await gamesRepositories.getGamesOnSale();
 
     res.send(games.rows);
     return;
