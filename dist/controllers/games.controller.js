@@ -79,7 +79,7 @@ export function getGamesOnSale(req, res) {
 }
 export function insertGame(req, res) {
     return __awaiter(this, void 0, void 0, function () {
-        var newGame, result, error_3;
+        var newGame, error_3;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
@@ -89,8 +89,8 @@ export function insertGame(req, res) {
                     _a.trys.push([1, 3, , 4]);
                     return [4 /*yield*/, gamesRepositories.insertGame(newGame)];
                 case 2:
-                    result = _a.sent();
-                    res.status(201).send("Game ".concat(result.rows[0].title, " inserted"));
+                    _a.sent();
+                    res.status(201).send("Game inserted");
                     return [2 /*return*/];
                 case 3:
                     error_3 = _a.sent();

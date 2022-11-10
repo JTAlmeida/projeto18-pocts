@@ -6,7 +6,7 @@ export const validateSchema = (schema: ObjectSchema) => {
     const validation = schema.validate(req.body, { abortEarly: false });
 
     if (validation.error) {
-      const errors = validation.error.details.map((err: Joi.ValidationErrorItem) => err);
+      const errors = validation.error.details.map((err: Joi.ValidationErrorItem) => err.message);
       res.status(422).send({
         message: "Joi patterns were not satisfied!",
         joiErrors: errors,

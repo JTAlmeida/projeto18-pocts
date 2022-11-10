@@ -30,9 +30,9 @@ export async function insertGame(req: Request, res: Response) {
   const newGame = req.body as NewGame;
 
   try {
-    const result = await gamesRepositories.insertGame(newGame);
+    await gamesRepositories.insertGame(newGame);
 
-    res.status(201).send(`Game ${result.rows[0].title} inserted`);
+    res.status(201).send(`Game inserted`);
     return;
   } catch (error) {
     res.status(500).send({ error: error.message });

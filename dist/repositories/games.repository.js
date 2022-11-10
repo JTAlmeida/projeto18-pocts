@@ -52,7 +52,7 @@ export function getGamesOnSale() {
 export function insertGame(game) {
     return __awaiter(this, void 0, void 0, function () {
         return __generator(this, function (_a) {
-            return [2 /*return*/, db.query("INSERT INTO games (title, price, \"isOnSale\", \"saleUntil\") VALUES ($1, $2, $3, $4);", [game.title, game.price, game.isOnSale, game.saleUntil])];
+            return [2 /*return*/, db.query("INSERT INTO games (title, price, \"isOnSale\", \"salePrice\", \"saleUntil\") VALUES ($1, $2, $3, $4, $5);", [game.title, game.price, game.isOnSale, game.salePrice, game.saleUntil])];
         });
     });
 }

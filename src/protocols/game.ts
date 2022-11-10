@@ -3,6 +3,7 @@ export type GameEntity = {
     title: string,
     price: number,
     isOnSale: boolean,
+    salePrice: number,
     saleUntil: Date
 };
 
