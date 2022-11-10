@@ -27,16 +27,16 @@ export async function getGamesOnSale(req: Request, res: Response) {
 }
 
 export async function getSaleTotalValue(req: Request, res: Response) {
-    try {
-      const games = await gamesRepositories.getSaleTotalValue();
-  
-      res.send(games.rows[0]);
-      return;
-    } catch (error) {
-      res.status(500).send({ error: error.message });
-      return;
-    }
+  try {
+    const games = await gamesRepositories.getSaleTotalValue();
+
+    res.send(games.rows[0]);
+    return;
+  } catch (error) {
+    res.status(500).send({ error: error.message });
+    return;
   }
+}
 
 export async function insertGame(req: Request, res: Response) {
   const newGame = req.body as NewGame;
@@ -63,8 +63,17 @@ export async function updateGame(req: Request, res: Response) {
 }
 
 export async function deleteGame(req: Request, res: Response) {
+  const id = req.params;
+
   try {
-    res.send("OK");
+    const deletedGames = await gamesRepositories.deleteGame(id.id);
+
+    if (deletedGames.rowCount === 0){
+        res.status(404).send({error: "Game not found!"});
+        return;
+    }
+
+    res.status(200).send({ message: "Game deleted." });
     return;
   } catch (error) {
     res.status(500).send({ error: error.message });
