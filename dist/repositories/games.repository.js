@@ -49,6 +49,13 @@ export function getGamesOnSale() {
         });
     });
 }
+export function getSaleTotalValue() {
+    return __awaiter(this, void 0, void 0, function () {
+        return __generator(this, function (_a) {
+            return [2 /*return*/, db.query("SELECT SUM(\"salePrice\")::int as total FROM games WHERE \"isOnSale\" = TRUE;")];
+        });
+    });
+}
 export function insertGame(game) {
     return __awaiter(this, void 0, void 0, function () {
         return __generator(this, function (_a) {

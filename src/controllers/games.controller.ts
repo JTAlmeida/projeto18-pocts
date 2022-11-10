@@ -26,6 +26,18 @@ export async function getGamesOnSale(req: Request, res: Response) {
   }
 }
 
+export async function getSaleTotalValue(req: Request, res: Response) {
+    try {
+      const games = await gamesRepositories.getSaleTotalValue();
+  
+      res.send(games.rows[0]);
+      return;
+    } catch (error) {
+      res.status(500).send({ error: error.message });
+      return;
+    }
+  }
+
 export async function insertGame(req: Request, res: Response) {
   const newGame = req.body as NewGame;
 
