@@ -26,7 +26,7 @@ Body: {
    "saleUntil": "2022-11-25"
    }
 
-* "salePrice" and "saleUntil" should only be sent if "isOnSale" is true, otherwise they're forbidden. *
+*"salePrice" and "saleUntil" should only be sent if "isOnSale" is true, otherwise they're forbidden.
 
 5. PUT: /games/:id
 - Updates the game that matches the inserted id.
