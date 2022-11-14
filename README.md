@@ -4,7 +4,7 @@
 
 Pocts is a proof of concept for typescript. It's a game wishlist where you can add, update, remove and read data about wished games, including: price, games on sale, sale price and until when the game is on sale. The following routes and functionalities can be found in this project:
 
-```bash
+
 1. GET: /games
 - Gets all wished games.
 
@@ -17,7 +17,7 @@ Pocts is a proof of concept for typescript. It's a game wishlist where you can a
 4. POST: /games
 - Insert a new game to your wishlist (there can't be games with the same title).
 Example:
-
+```bash
 Body: {
    "title": "God of War Ragnarok",
    "price": 29999,
@@ -25,13 +25,13 @@ Body: {
    "salePrice": 24999,
    "saleUntil": "2022-11-25"
    }
-
+```
 *"salePrice" and "saleUntil" should only be sent if "isOnSale" is true, otherwise they're forbidden.
 
 5. PUT: /games/:id
 - Updates the game that matches the inserted id.
 Example:
-
+```bash
 Body: {
    "title": "God of War Ragnarok",
    "price": 29999,
@@ -39,13 +39,11 @@ Body: {
    "salePrice": 24999,
    "saleUntil": "2022-11-25"
    }
-
+```
 *"salePrice" and "saleUntil" should only be sent if "isOnSale" is true, otherwise they're forbidden.
 
 6. DELETE: /games/:id
 - Deletes the game that matches inserted id.
-
-```
 
 ## How to run for development
 
