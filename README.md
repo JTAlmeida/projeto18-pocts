@@ -40,7 +40,7 @@ Body: {
    "saleUntil": "2022-11-25"
    }
 
-* "salePrice" and "saleUntil" should only be sent if "isOnSale" is true, otherwise they're forbidden. *
+*"salePrice" and "saleUntil" should only be sent if "isOnSale" is true, otherwise they're forbidden.
 
 6. DELETE: /games/:id
 - Deletes the game that matches inserted id.
