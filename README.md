@@ -36,8 +36,8 @@ Body: {
    "title": "God of War Ragnarok",
    "price": 29999,
    "isOnSale": true,
-   "salePrice": 24999,
-   "saleUntil": "2022-11-25"
+   "salePrice": 19999,
+   "saleUntil": "2022-11-30"
    }
 ```
 **"salePrice" and "saleUntil" should only be sent if "isOnSale" is true, otherwise they're forbidden.**
