@@ -56,3 +56,7 @@ npm i
 
 3. Create a PostgreSQL database with whatever name you want (there's a 'dump.sql' file that you can use to create tables).
 4. Create and configure the `.env` file using the `.env.example` as example.
+5. Start the server.
+```bash
+npm run dev
+```
